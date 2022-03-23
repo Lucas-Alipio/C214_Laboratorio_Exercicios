@@ -1,8 +1,3 @@
-/* Pelo metodo que foi mostrado na aula, estava acontecendo algum erro, e não estava conseguindo resolver.
-    
-    Por isso encontrei esse method isNumber do validate.js e funcionou, porem se for preciso validar uma
-    string ou bool, já nao sei se tem como, provavelmente precise ser do jeito que voce mostrou */
-
 const { isNumber } = require('validate.js');
 
 
