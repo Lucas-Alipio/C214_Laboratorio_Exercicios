@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = `mongodb+srv://adm:adm@cluster0.z6flp.mongodb.net/myFirstDatabase?`;
+const uri = `mongodb+srv://{}:{}@cluster0.z6flp.mongodb.net/myFirstDatabase?`;
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
