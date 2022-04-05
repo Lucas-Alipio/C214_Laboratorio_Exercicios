@@ -4,15 +4,14 @@ const Utils = require('../utils/utils');
 const Constants = require('../utils/constants');
 const UsersRepository = require('../port/users_repository');
 const Constraints = require('../utils/users_validation');
+const Validation = require('../utils/validation');
 
 const Users = {
     async create(data) {
         try {
-            const validation = validate.validate(data, Constraints.create);
+            const validation = Validation.create(data);
             if (validation) {
-                const response = Constants.ErrorValidation;
-                response.message = validation;
-                return response;
+                return validation;
             }
 
             data.id = Utils.generateUuid();
@@ -31,11 +30,9 @@ const Users = {
 
     async update(data) {
         try {
-            const validation = validate.validate(data, Constraints.update);
+            const validation = validation.update(data);
             if (validation) {
-                const response = Constants.ErrorValidation;
-                response.message = validation;
-                return response;
+                return validation;
             }
 
             const response = await UsersRepository.update(data);
@@ -52,11 +49,9 @@ const Users = {
 
     async delete(data) {
         try {
-            const validation = validate.validate(data, Constraints.deleteBy);
+            const validation = validation.delete(data);
             if (validation) {
-                const response = Constants.ErrorValidation;
-                response.message = validation;
-                return response;
+                return validation;
             }
 
             const response = await UsersRepository.delete(data);
